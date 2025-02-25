@@ -1,0 +1,108 @@
+#+title: Audio Interactive Systems Notes Iz 2502ff
+
+* Characteristics of Object Oriented Programming Languages
+
+** Encapsulation
+
+Data are contained in instances of classes as variables.  The data stored in these variables are protected (encapsulated): By default one cannot access these values for reading (seeing what the value is), or for writing (storing a new value in a valuable).
+
+** Inheritance
+
+
+
+** Polymorphism
+
+* Syntax
+
+** Comments:
+1. Single line comments are marked by //
+2. Multi-line comments are written between /* and */
+
+** Identifiers
+
+*** Names of classes
+Names of classes start with a capital letter. For example:
+
+#+begin_src sclang
+Integer
+#+end_src
+"Integer" represents the class integer.
+Like with any object, one can send a message to a class by adding a dot "." after its name and then adding a message. For example:
+
+#+begin_src sclang
+Integer.isKindOf(SimpleNumber);
+#+end_src
+
+Ask the class Integer if it is a subclass of SimpleNumber. The answer is "true".
+
+Analysis of the above syntax:
+
+Integer // the receiver object ("Subject of sentence").
+. // the separator that indicates a message
+isKindof // the message
+(SimpleNumber) // the arguments to the message.  Here we have a single argument and it is "SimpleNumber"
+** Messages
+
+Messages are the only way to communicate with objects. You send an object a message, and it does something for you, and it also gives you an answer as a result. The answer is called "return value".
+
+The typical order of sending a message is
+
+<receiver> <message>
+
+Additionally you can add arguments to a message.  So that becomes:
+
+<receiver> <message> (<arguments>...)
+
+The syntax for writing that is explained below.
+
+** Chaining messages
+
+Often it is useful to chain messages to do something with the value returned from a previous message.
+
+Example:
+
+#+begin_src sclang
+Window.new
+#+end_src
+
+Creates a window. But to show a window one must send it the message "front".  So to create a window and show it one chains the messages new and front.
+
+#+begin_src sclang
+Window.new.front;
+#+end_src
+
+So one sends the message front to the Window returned by Window.new;
+
+
+** Types of message syntax.
+
+*** Simple message:
+<receiver>.<message>
+
+Example:
+
+Object.superclass; // nil
+Integer.superclass; // SimpleNumber
+
+*** Message with one argument
+
+Standard syntax:
+<receiver>.<message>(<argument>)
+
+Example:
+1.rrand(10); // a random number between 1 and 10.
+
+Alternative syntax as binary operator:
+
+1 rrand: 10;
+
+**** Message with many arguments
+<receiver>.<message>(<argument1>, <argument2>, ...  <argumentn>);
+
+Example:
+
+Window.new("")
+
+*** Names of variables
+
+*** Names of methods
