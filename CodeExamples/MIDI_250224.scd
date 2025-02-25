@@ -27,7 +27,16 @@ MIDIIn.connectAll;
 //List connected sources
 MIDIClient.sources;
 //Activate midi input and post any incomming MIDI messages
-//Post incoming noteOn messages
+//:Post incoming noteOn messages
 MIDIIn.addFuncTo(\noteOn, { | ... args |
 	postln("MIDIIn received" + args);
 })
+//:Play a note when receiving noteOn
+MIDIIn.addFuncTo(\noteOn, { | id, chan, note, vel |
+	(note: note).play
+})
+//:
+60
+1
+2
+59
